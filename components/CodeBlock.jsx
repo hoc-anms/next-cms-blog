@@ -4,9 +4,6 @@ import {dracula} from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 const CodeBlock = {
   code({node, inline, className, children, ...props}) {
-      console.log('====================================');
-      console.log(className);
-      console.log('====================================');
     const match = /language-(\w+)/.exec(className || '')
     return !inline && match ? (
     <SyntaxHighlighter 
