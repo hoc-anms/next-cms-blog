@@ -41,7 +41,7 @@ const PostDetail = ({ post }) => {
         );
       case "code-block":
         return (
-          <div className="pt-3 pb-3">
+          <div key={index} className="pt-3 pb-3">
             {modifiedText.map((item, i) => (
               <ReactMarkdown components={CodeBlock} key={i}>{item}</ReactMarkdown>
             ))}
