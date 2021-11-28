@@ -254,3 +254,16 @@ export const getRecentPosts = async () => {
 
   return result.posts;
 };
+
+export const checkSlugExist = async (slug) => {
+  const query = gql`
+  query checkSlugExist($slug: String!) {
+    post(where: {slug:$slug}) {
+      id
+    }
+  }
+`;
+  const result = await request(graphqlAPI, query, { slug });
+
+  return result.post;
+};

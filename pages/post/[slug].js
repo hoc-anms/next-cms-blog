@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 import { PostDetail, Categories, PostWidget, Author, Comments, CommentsForm, Loader } from '../../components';
-import { getPosts, getPostDetails } from '../../services';
+import { getPosts, getPostDetails, checkSlugExist } from '../../services';
 import { AdjacentPosts } from '../../sections';
 
 const PostDetails = ({ post }) => {
@@ -50,6 +50,12 @@ export default PostDetails;
 
 // Fetch data at build time
 export async function getStaticProps({ params }) {
+  const checkExist = await checkSlugExist(params.slug);
+
+  if (!checkExist) {
+    return { notFound: true };
+  }
+
   const data = await getPostDetails(params.slug);
   return {
     props: {
