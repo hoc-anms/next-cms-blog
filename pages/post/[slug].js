@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 import { PostDetail, Categories, PostWidget, Author, Comments, CommentsForm, Loader } from '../../components';
@@ -14,6 +15,17 @@ const PostDetails = ({ post }) => {
 
   return (
     <>
+      <Head>
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary" key="twcard" />
+        <meta name="twitter:creator" content={post.author.name} key="twhandle" />
+
+        {/* Open Graph */}
+        <meta property="og:url" content={post.slug} key="ogurl" />
+        <meta property="og:image" content={post.featuredImage.url} key="ogimage" />
+        <meta property="og:title" content={post.title} key="ogtitle" />
+        <meta property="og:description" content={post.excerpt} key="ogdesc" />
+      </Head>
       <div className="container mx-auto px-10 mb-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="col-span-1 lg:col-span-8">
