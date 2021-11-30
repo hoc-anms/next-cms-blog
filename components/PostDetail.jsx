@@ -41,7 +41,7 @@ const PostDetail = ({ post }) => {
         );
       case "code-block":
         return (
-          <div key={index} className="pt-3 pb-3">
+          <div className="pt-3 pb-3">
             {modifiedText.map((item, i) => (
               <ReactMarkdown components={CodeBlock} key={i}>{item}</ReactMarkdown>
             ))}
@@ -77,7 +77,7 @@ const PostDetail = ({ post }) => {
               <span className="align-middle">{moment(post.createdAt).format('MMM DD, YYYY')}</span>
             </div>
           </div>
-          <title><h1 className="mb-8 text-3xl font-semibold">{post.title}</h1></title>
+          <h1 className="mb-8 text-3xl font-semibold">{post.title}</h1>
           {post.content.raw.children.map((typeObj, index) => {
             const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
 
