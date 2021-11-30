@@ -267,3 +267,19 @@ export const checkSlugExist = async (slug) => {
 
   return result.post;
 };
+
+export const findCategoryBySlug = async (slug) => {
+  const query = gql`
+  query findCategoryBySlug($slug: String!) {
+    category(where: {slug:$slug}) {
+      id, name, slug, featuredImage {
+        url
+      }
+    }
+  }
+`;
+  const result = await request(graphqlAPI, query, { slug });
+
+  return result.category;
+};
+
