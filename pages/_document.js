@@ -10,14 +10,14 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          {/* <script type="text/javascript" src="https://itexpress.vn/API/files/it.snow.js"></script> */}
-          <script async src="//file.hstatic.net/1000033716/file/snow.js" type="text/javascript" />
-          <img style={{ position: 'fixed', zIndex: '9999', bottom: '20px', left: '20px' }} src="//file.hstatic.net/1000033716/file/enp-bottom-left.png" />
+          {/* <meta name="viewport" content="width=device-width,minimum-scale=1, initial-scale=1" /> */}
 
         </Head>
         <body>
           <Main />
           <NextScript />
+          <script async src="//file.hstatic.net/1000033716/file/snow.js" type="text/javascript" />
+          <img style={{ position: 'fixed', zIndex: '9999', bottom: '20px', left: '20px' }} src="//file.hstatic.net/1000033716/file/enp-bottom-left.png" />
         </body>
       </Html>
     );
